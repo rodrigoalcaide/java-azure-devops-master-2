@@ -7,10 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        os: [Windows-latest]
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
