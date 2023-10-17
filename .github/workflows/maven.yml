@@ -25,14 +25,10 @@ jobs:
 
     - name: Deploy to Tomcat
       run: |
-        $basicAuth = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("${env:TOMCAT_USERNAME}:${env:TOMCAT_PASSWORD}"))
-        $url = "http://localhost:8081/manager/text/deploy?path=/your-app"
-        $repositoryDir = $env:GITHUB_WORKSPACE
-        $warFile = "$repositoryDir/target/JSPSample-0.0.1.war"
-    
-        $curlArgs = @("-u", $basicAuth, "--upload-file", $warFile, $url)
-    
-        curl @curlArgs
+        curl -u ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} \
+             --upload-file $GITHUB_WORKSPACE/target/JSPSample-0.0.1.war \
+             http://localhost:8081/manager/text/deploy?path=/your-app
+
       env:
         TOMCAT_USERNAME: ${{ secrets.TOMCAT_USERNAME }}
         TOMCAT_PASSWORD: ${{ secrets.TOMCAT_PASSWORD }}
