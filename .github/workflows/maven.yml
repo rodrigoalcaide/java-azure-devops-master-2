@@ -25,7 +25,7 @@ jobs:
 
     - name: Deploy to Tomcat
       run: |
-        curl -T ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} \
+        curl -uT ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} \
              --upload-file $GITHUB_WORKSPACE/target/JSPSample-0.0.1.war \
              http://localhost:8081/manager/text/deploy?path=/your-app
 
