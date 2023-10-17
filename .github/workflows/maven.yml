@@ -24,7 +24,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Deploy to Tomcat
-      run: curl -u ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} --upload-file $GITHUB_WORKSPACE/target/JSPSample-0.0.1.war http://localhost:8081/manager/text/deploy?path=/your-app
+      run: curl -u ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} --upload-file $GITHUB_WORKSPACE/java-azure-devops-master-2/target/JSPSample-0.0.1.war http://localhost:8081/manager/text/deploy?path=/your-app
 
       env:
         TOMCAT_USERNAME: ${{ secrets.TOMCAT_USERNAME }}
