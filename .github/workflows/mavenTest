@@ -1,0 +1,45 @@
+name: Java App Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+
+    - name: Build Java App
+      run: mvn clean install
+
+    - name: Copy WAR file
+      run: cp target/*.war $(Build.ArtifactStagingDirectory)
+
+    - name: Publish Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: drop
+        path: $(Build.ArtifactStagingDirectory)
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+
+    steps:
+    - name: Download Artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: drop
+
+    - name: Deploy to Tomcat
+      run: |
+        curl -v -u robot:123 -T $(Build.ArtifactStagingDirectory)/JSPSample-0.0.1.war http://localhost:8081/manager/text/deploy?path=/myapp&update=true
