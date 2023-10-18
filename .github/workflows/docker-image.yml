@@ -21,6 +21,8 @@ jobs:
     - name: Start Docker container
       run: |
         docker run -d -p 8080:8080 --name containerTomCatYaml meu-tomcat-app
+      ports:
+      - 8080:8080
 
     - name: Access your Java application
       run: |
