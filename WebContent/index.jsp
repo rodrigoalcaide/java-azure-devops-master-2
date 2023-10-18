@@ -78,7 +78,7 @@
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
-                        <span class="name">JSP Demo</span>
+                        <span class="name">JSP Demo - GitHub Actions</span>
                         <hr class="star-light">
                         <span class="skills">Noesis</span>
                     </div>
