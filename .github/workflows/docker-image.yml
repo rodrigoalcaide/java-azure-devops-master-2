@@ -3,7 +3,7 @@ name: Deploy Java App to Docker Container
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-deploy:
@@ -16,13 +16,12 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t meu-tomcat-app .
-      working-directory: C:\actions-runner\_work\java-azure-devops-master-2\java-azure-devops-master-2
+      working-directory: path/to/your/project
 
     - name: Start Docker container
       run: |
-        docker run -d -p 8080:8080 --name containerTomCatYaml meu-tomcat-app
-      ports:
-      - 8080:8080
+        docker run -d -p 8080:8080 --name meu-container meu-tomcat-app
+      continue-on-error: true
 
     - name: Access your Java application
       run: |
