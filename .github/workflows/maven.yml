@@ -26,7 +26,8 @@ jobs:
 
     - name: Deploy to Tomcat
       #run: curl -u ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} --upload-file C:\actions-runner\_work\java-azure-devops-master-2\java-azure-devops-master-2\target\JSPSample-0.0.1.war http://localhost:8081/manager/text/deploy?path=/your-app
-      run: Invoke-WebRequest -Uri http://localhost:8081/manager/text/deploy?path=/your-app -Method Post -InFile "C:\actions-runner\_work\java-azure-devops-master-2\java-azure-devops-master-2\target\JSPSample-0.0.1.war" -Credential (Get-Credential -UserName 'robot' -Password '123')
+      run: curl -u robot:123 --upload-file C:\actions-runner\_work\java-azure-devops-master-2\java-azure-devops-master-2\target\JSPSample-0.0.1.war http://localhost:8081/manager/text/deploy?path=/your-app
+
 
       env:
         TOMCAT_USERNAME: ${{ secrets.TOMCAT_USERNAME }}
