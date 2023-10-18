@@ -19,7 +19,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      # run: mvn -B package --file pom.xml
+      run: mvn clean install
 
     - name: Deploy to Tomcat
       run: curl -u ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} --upload-file $GITHUB_WORKSPACE/target/JSPSample-0.0.1.war http://localhost:8081/manager/text/deploy?path=/your-app
