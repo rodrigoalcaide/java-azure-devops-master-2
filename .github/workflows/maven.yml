@@ -25,7 +25,7 @@ jobs:
       run: mvn clean install
 
     - name: Deploy to Tomcat
-      run: curl -u ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} --upload-file C:\actions-runner\_work\java-azure-devops-master-2\java-azure-devops-master-2\target\JSPSample-0.0.1.war http://localhost:8081/manager/text/deploy?path=/your-app
+      run: curl.exe -u ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} --upload-file C:\actions-runner\_work\java-azure-devops-master-2\java-azure-devops-master-2\target\JSPSample-0.0.1.war http://localhost:8081/manager/text/deploy?path=/your-app
       
 
 
