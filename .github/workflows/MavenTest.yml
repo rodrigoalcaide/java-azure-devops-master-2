@@ -1,5 +1,4 @@
-name: Java App Deploy
-
+name: 2
 on:
   push:
     branches:
