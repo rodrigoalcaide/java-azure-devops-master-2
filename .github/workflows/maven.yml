@@ -1,4 +1,4 @@
-name: Deploy Java Web App
+name: Deploy Java Web App - 1 
 
 on:
   push:
