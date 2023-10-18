@@ -16,11 +16,11 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t meu-tomcat-app .
-      working-directory: path/to/your/project
+      working-directory: C:\Users\rodrigo.r.alcaide\Desktop\Tarefa_TomCat\java-azure-devops-master
 
     - name: Start Docker container
       run: |
-        docker run -d -p 8080:8080 --name meu-container meu-tomcat-app
+        docker run -d -p 8080:8080 --name ContainerTest meu-tomcat-app
       continue-on-error: true
 
     - name: Access your Java application
