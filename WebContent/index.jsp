@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>JSP Demo1</title>
+    <title>JSP Demo1 - GitHub Actions</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Teste V8</a>
+                        <a href="#portfolio">Teste V9</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#about">About</a>
